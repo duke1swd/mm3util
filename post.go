@@ -34,8 +34,8 @@ func post(url string, payload interface{}) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != 200 {
-		log.Fatalf("put of \"%s\" fails with code %d", url, resp.StatusCode)
+	if resp.StatusCode != 201 && resp.StatusCode != 202 {
+		log.Fatalf("post of \"%s\" fails with code %d", url, resp.StatusCode)
 	}
 
 	bodyBytes, err := ioutil.ReadAll(resp.Body)

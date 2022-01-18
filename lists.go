@@ -35,7 +35,11 @@ func listsCmd() {
 	}
 
 	for _, v := range lists {
-		fmt.Printf("%s \"%s\"\n", v.displayName, v.description)
+		fmt.Printf("%16s %12s %32s: \"%s\"\n",
+			v.displayName,
+			v.listName,
+			v.listId,
+			v.description)
 	}
 }
 
