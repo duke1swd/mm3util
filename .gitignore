@@ -5,6 +5,8 @@
 *.so
 *.dylib
 
+mm3util
+
 # Test binary, built with `go test -c`
 *.test
 
