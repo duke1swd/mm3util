@@ -26,16 +26,17 @@ func delCmd(url string) {
 	}
 	defer resp.Body.Close()
 
-	if debug {
-		fmt.Printf("http DEL request \"%s\" returns %d\n", url, resp.StatusCode)
-	}
-
 	bodyBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalf("ioutil.ReadAll (DEL) fails with %s", err.Error())
 	}
 
 	if debug {
+		fmt.Printf("http DEL request \"%s\" returns %d\n", url, resp.StatusCode)
 		prettyJ("JSON from delete:", bodyBytes)
+	}
+
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		log.Fatalf("delete of \"%s\" fails with code %d", url, resp.StatusCode)
 	}
 }

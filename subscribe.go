@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os"
 )
 
 type subscribeT struct {
@@ -107,7 +108,41 @@ func unSubscribeCmd() {
 		log.Fatal("badly formed json in response to get members/find (unsubscribe)")
 	}
 
-	memberIdRaw, ok := res["member_id"]
+	totalSizeRaw, ok := res["total_size"]
+	if !ok {
+		log.Fatal("no total size in response to members/find (unsubscribe)")
+	}
+	totalSizeF, ok := totalSizeRaw.(float64)
+	if !ok {
+		log.Fatal("totalSize is not an int64 (unsubscribe)")
+	}
+	totalSize := int(totalSizeF)
+
+	if totalSize == 0 {
+		log.Printf("User %s does not appear to be in list %s.  Not unsubscribed\n",
+			address, list)
+		os.Exit(2)
+	}
+
+	if totalSize != 1 {
+		log.Fatalf("User %s appears to be subscribed multiple times in list %s.  Not unsubscribed\n",
+			address, list)
+	}
+
+	entriesRaw, ok := res["entries"]
+	if !ok {
+		log.Fatal("no entries in response to members/find")
+	}
+	entries, ok := entriesRaw.([]interface{})
+	if !ok {
+		log.Fatal("badly formed json /entries in response to members/find")
+	}
+	entry, ok := entries[0].(map[string]interface{})
+	if !ok {
+		log.Fatal("entries[0] bad type in unsubscribe")
+	}
+
+	memberIdRaw, ok := entry["member_id"]
 	if !ok {
 		log.Fatal("member ID field not found (unsubscribe)")
 	}
