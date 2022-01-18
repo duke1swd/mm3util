@@ -15,8 +15,6 @@ func delCmd(url string) {
 	}
 
 	// set up the headers
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("Content-Type", "application/json")
 	req.SetBasicAuth(configuration.Username, configuration.Password)
 
 	// Maket the API call

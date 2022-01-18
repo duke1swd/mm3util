@@ -142,16 +142,16 @@ func unSubscribeCmd() {
 		log.Fatal("entries[0] bad type in unsubscribe")
 	}
 
-	memberIdRaw, ok := entry["member_id"]
+	selfLinkRaw, ok := entry["self_link"]
 	if !ok {
-		log.Fatal("member ID field not found (unsubscribe)")
+		log.Fatal("self_link field not found (unsubscribe)")
 	}
 
-	memberId, ok := memberIdRaw.(string)
+	selfLink, ok := selfLinkRaw.(string)
 	if !ok {
-		log.Fatal("member ID not string")
+		log.Fatal("self link not string")
 	}
 
-	delCmd(configuration.Url + "/members/" + memberId)
+	delCmd(selfLink)
 	log.Printf("user %s removed from list %s", address, list)
 }
