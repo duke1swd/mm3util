@@ -7,15 +7,15 @@ import (
 )
 
 type subscribeT struct {
-	ListID       string `json:"list_id"`
-	Subscriber   string `json:"subscriber"`
-	PreAproved   string `json:"pre_approved"`
-	//PreVerified  string `json:"pre_verified"`
-	//PreConfirmed string `json:"pre_confirmed"`
-	//DisplayName  string `json:"display_name"`
-	//SendWelcome    string `json:"send_welcome_message"`
-	//DeliveryMode   string `json:"delivery_mode"`
-	//DeliveryStatus string `json:"delivery_status"`
+	ListID      string `json:"list_id"`
+	Subscriber  string `json:"subscriber"`
+	PreAproved  string `json:"pre_approved"`
+	PreVerified string `json:"pre_verified"`
+	//PreConfirmed string `json:"pre_confirmed"`		// 400
+	//DisplayName  string `json:"display_name"`		// 400
+	//SendWelcome    string `json:"send_welcome_message"`	// 400
+	//DeliveryMode   string `json:"delivery_mode"`		// 400
+	//DeliveryStatus string `json:"delivery_status"`	// 400
 }
 
 func subscribeCmd() {
@@ -66,7 +66,7 @@ func subscribeCmd() {
 	subscribeStruct.ListID = listEntry.listId
 	subscribeStruct.Subscriber = userId
 	subscribeStruct.PreAproved = "true"
-	//subscribeStruct.PreVerified = "true"
+	subscribeStruct.PreVerified = "true"
 	//subscribeStruct.PreConfirmed = "true"
 	//subscribeStruct.DisplayName = "Display Name Foo"
 	//subscribeStruct.SendWelcome = "false"
