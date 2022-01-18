@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func post(url string, payload interface{}) {
+func post(url string, payload interface{}) interface{} {
 	jsonReq, err := json.Marshal(payload)
 	if err != nil {
 		log.Fatalln(err)
@@ -34,7 +34,7 @@ func post(url string, payload interface{}) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != 201 && resp.StatusCode != 202 {
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
 		log.Fatalf("post of \"%s\" fails with code %d", url, resp.StatusCode)
 	}
 
@@ -46,4 +46,9 @@ func post(url string, payload interface{}) {
 	if debug {
 		prettyJ("JSON from POST:", bodyBytes)
 	}
+
+	var responseObject interface{}
+	json.Unmarshal(bodyBytes, &responseObject)
+
+	return responseObject
 }

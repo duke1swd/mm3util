@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func delcmd(url string) {
+func delCmd(url string) {
 	client := &http.Client{}
 	req, err := http.NewRequest("DELETE", url, nil)
 	if err != nil {

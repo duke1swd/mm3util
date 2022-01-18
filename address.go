@@ -93,7 +93,7 @@ func addressDelete() {
 		log.Fatalf("Address %s has a non-string self link (del)\n", address)
 	}
 
-	delcmd(link)
+	delCmd(link)
 	log.Printf("Address %s deleted.", address)
 }
 
@@ -186,6 +186,6 @@ func addressUnlink() {
 		log.Fatalf("address %s not found.  Not unlinked (self link)", address)
 	}
 
-	delcmd(configuration.Url + "/addresses/" + address + "/user")
+	delCmd(configuration.Url + "/addresses/" + address + "/user")
 	log.Printf("address %s unlinked", address)
 }

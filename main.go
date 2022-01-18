@@ -62,6 +62,8 @@ func main() {
 		addressCmd()
 	case "subscribe":
 		subscribeCmd()
+	case "unsubscribe":
+		unSubscribeCmd()
 	case "list":
 		listCmd()
 	case "members":

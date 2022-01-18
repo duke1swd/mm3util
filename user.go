@@ -115,7 +115,7 @@ func userDelete() {
 		log.Printf("User %s does not exist (self-link)\n", address)
 		os.Exit(2)
 	}
-	delcmd(configuration.Url + "/users/" + address)
+	delCmd(configuration.Url + "/users/" + address)
 	log.Printf("User %s deleted", address)
 }
 
