@@ -12,7 +12,7 @@ type subscribeT struct {
 	Subscriber  string `json:"subscriber"`
 	PreAproved  string `json:"pre_approved"`
 	PreVerified string `json:"pre_verified"`
-	//PreConfirmed string `json:"pre_confirmed"`		// 400
+	PreConfirmed string `json:"pre_confirmed"`
 	//DisplayName  string `json:"display_name"`		// 400
 	//SendWelcome    string `json:"send_welcome_message"`	// 400
 	//DeliveryMode   string `json:"delivery_mode"`		// 400
@@ -79,6 +79,7 @@ func subscribeCmd() {
 	subscribeStruct.Subscriber = userId
 	subscribeStruct.PreAproved = "true"
 	subscribeStruct.PreVerified = "true"
+	subscribeStruct.PreConfirmed = "true"
 	//subscribeStruct.PreConfirmed = "true"
 	//subscribeStruct.DisplayName = "Display Name Foo"
 	//subscribeStruct.SendWelcome = "false"
