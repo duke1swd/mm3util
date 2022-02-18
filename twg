@@ -1,4 +1,12 @@
-#wget -O wget.out --user restadmin --password restpass http://localhost:8001/3.1/members/1
-#wget -O wget.out --user restadmin --password restpass http://localhost:8001/3.0/addresses/swd@pobox.com
-wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/members'
-#wget -O wget.out --user restadmin --password restpass http://localhost:8001/3.1/addresses
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/templates/list/burp.chapelwoodhoa.org/list:user:notice:welcome'
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/templates/list/burp.chapelwoodhoa.org'
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/lists/burp.chapelwoodhoa.org'
+
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/templates/list/burp.chapelwoodhoa.org/list:user:notice:welcome'
+wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/3.1/lists/burp.chapelwoodhoa.org/uris'
+
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8001/mailman3/api/templates/list/burp.chapelwoodhoa.org/list:user:notice:welcome'
+
+
+
+#wget -O wget.out --user restadmin --password restpass 'http://localhost:8000/mailman3/api/templates/list/burp.chapelwoodhoa.org/list:user:notice:welcome'
