@@ -8,10 +8,10 @@ import (
 )
 
 type subscribeT struct {
-	ListID      string `json:"list_id"`
-	Subscriber  string `json:"subscriber"`
-	PreAproved  string `json:"pre_approved"`
-	PreVerified string `json:"pre_verified"`
+	ListID       string `json:"list_id"`
+	Subscriber   string `json:"subscriber"`
+	PreAproved   string `json:"pre_approved"`
+	PreVerified  string `json:"pre_verified"`
 	PreConfirmed string `json:"pre_confirmed"`
 	//DisplayName  string `json:"display_name"`		// 400
 	//SendWelcome    string `json:"send_welcome_message"`	// 400

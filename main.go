@@ -41,6 +41,20 @@ func init() {
 func usage() {
 	fmt.Println("Flags:")
 	flag.PrintDefaults()
+	fmt.Println("\nCommands:")
+	fmt.Println("\tdomains")
+	fmt.Println("\tlist")
+	fmt.Println("\tlists")
+	fmt.Println("\tuser\tadd <email address>")
+	fmt.Println("\t\tdelete <email address|user ID>")
+	fmt.Println("\t\tshow <email address|'all'>")
+	fmt.Println("\taddress\tadd <email address>")
+	fmt.Println("\t\tdelete <email address>")
+	fmt.Println("\t\tshow <email address|'all'>")
+	fmt.Println("\t\tunlink <email address>")
+	fmt.Println("\tmembers")
+	fmt.Println("\tsubscribe <list name> <email address")
+	fmt.Println("\tunsubscribe <list name> <email address")
 	os.Exit(1)
 }
 
