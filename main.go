@@ -44,6 +44,7 @@ func usage() {
 	fmt.Println("\nCommands:")
 	fmt.Println("\tdomains")
 	fmt.Println("\tlist")
+	fmt.Println("\t\temail <list name> (displays all emails in list)")
 	fmt.Println("\tlists")
 	fmt.Println("\tuser\tadd <email address>")
 	fmt.Println("\t\tdelete <email address|user ID>")
